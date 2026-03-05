@@ -145,7 +145,8 @@ def render_priority_badge(priority: str) -> str:
 # ── Sidebar ────────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### ⚙️ Configuration")
-    openai_key = st.text_input("OpenAI API Key", type="password", placeholder="sk-...")
+    import os
+openai_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
     st.markdown("---")
 
     st.markdown("### 🎯 Audit Scope")
